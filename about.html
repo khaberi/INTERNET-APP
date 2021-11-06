@@ -68,7 +68,42 @@
     
     <!-- I used lorem100 for the paragraph -->
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur nostrum nesciunt, error ea ipsa quos. Deserunt vitae tempore commodi, autem iusto unde aperiam deleniti, optio nostrum exercitationem dolorem perferendis architecto! Harum aspernatur rem quos beatae excepturi exercitationem delectus praesentium obcaecati doloribus sunt, placeat maiores ipsum quas ut culpa molestiae sequi deserunt mollitia. Eligendi, voluptates adipisci inventore ad quae beatae tempora! Aliquid minus iste, earum aliquam exercitationem obcaecati! Ab cum dolor asperiores debitis aliquam nesciunt vel quis consectetur tenetur quia magni nobis culpa ipsa, autem sapiente quisquam ut excepturi. Et vitae aut esse, inventore neque ut? Quisquam dolorum labore incidunt?</p>
-    
+   
+    <h1> Json data </h1>
+    <button id="mybutton">Show me Json </button>
+    <div id="mydata" style = "background-color: green ;">
+     Respond 
+    </div>
+
+<script>
+
+$ ("#mybutton").click (function() {
+            $.ajax ({
+            type: 'GET', 
+            url: 'https://reqres.in/api/users/2', 
+
+          })
+            .done (function(resp) { 
+              $ ('#mydata') .html (` 
+              <h3> ${resp.data.first_name} <\h3>
+              <img src= "${resp.data.avatar}"> ` )
+              console.log(resp)
+          } )
+                    .fail ()
+                    .always();  
+          }); 
+
+</script>
+
+<script>
+
+  $("p") .click ( function(){
+    $(this) .hide ();
+
+  } );
+
+  </script>
+
 
     <footer>
         <!-- list for social media accounts -->
@@ -80,6 +115,8 @@
         <h6>Email: Online_Store@gmail.com</h6>
         <h6>Office Address: 3226 Ahmad Al Attas, Al Zahra, Jeddah 23521</h6>  
     </footer>
-    
+
+      
+
 </body>
 </html>
